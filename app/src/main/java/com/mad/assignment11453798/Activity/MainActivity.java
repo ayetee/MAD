@@ -103,11 +103,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent calendarScreen = new Intent(getApplicationContext(),CalendarActivity.class);
-                getTweets(); //testing
+//                getTweets(); //testing
 //                startActivity(calendarScreen);
-//                startActivityForResult(calendarScreen,VIEW_CALENDAR_REQUEST);
-                //HAHA CMON WOKR
-
+                startActivityForResult(calendarScreen,VIEW_CALENDAR_REQUEST);
             }
         });
 
