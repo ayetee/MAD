@@ -106,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
                 getTweets(); //testing
 //                startActivity(calendarScreen);
 //                startActivityForResult(calendarScreen,VIEW_CALENDAR_REQUEST);
+                //HAHA CMON WOKR
+
             }
         });
 
