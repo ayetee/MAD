@@ -22,4 +22,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold|italic"
+        android:textSize="14sp"
+        android:text="@string/date_content_twitter_tweet_tv"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/date_content_twitter_tweet_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
 </LinearLayout>

@@ -13,4 +13,6 @@
     <string name="fb_event_item_description_tv_holder">Event description</string>
     <string name="twitter_app_id">aTxtitgamqDg8S2izHMhvmqCy</string>
     <string name="twitter_app_secret">atYRWPIeo5RTNp9tkWxEnk07MGTQfXzrUPRxaixp9amxRN768n</string>
+    <string name="twitter_tweet_item_description_tv_holder">Tweet text</string>
+    <string name="date_content_twitter_tweet_tv">Tweets</string>
 </resources>
