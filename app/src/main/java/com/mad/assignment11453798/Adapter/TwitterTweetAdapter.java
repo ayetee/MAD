@@ -33,7 +33,7 @@ public class TwitterTweetAdapter extends RecyclerView.Adapter<TwitterTweetAdapte
         //class holds all the UI elements in a single event row
         public ViewHolder(final View itemView) {
             super(itemView);
-            tweetText = (TextView)itemView.findViewById(R.id.fb_event_item_name_tv);
+            tweetText = (TextView)itemView.findViewById(R.id.twitter_tweet_item_tweet_text_tv);
         }
     }
 
@@ -42,7 +42,7 @@ public class TwitterTweetAdapter extends RecyclerView.Adapter<TwitterTweetAdapte
      */
     @Override
     public TwitterTweetAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.fb_event_item, parent, false);
+        View view = inflater.inflate(R.layout.twitter_tweet_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
