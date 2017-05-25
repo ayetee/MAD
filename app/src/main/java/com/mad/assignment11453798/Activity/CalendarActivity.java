@@ -99,7 +99,7 @@ public class CalendarActivity extends MainActivity{
                         try {
                             Gson gson = new Gson();
                             List<FacebookEvent> facebookEvents = new ArrayList<>();
-//                            FacebookEvent.deleteAll(FacebookEvent.class);
+                            FacebookEvent.deleteAll(FacebookEvent.class);
                             JSONArray dataJSONArray = response.getJSONObject().getJSONArray("data");
                             for(int i=0;i<dataJSONArray.length();i++){
                                 String content = dataJSONArray.get(i).toString();
@@ -136,7 +136,7 @@ public class CalendarActivity extends MainActivity{
             @Override
             public void success(Result<List<Tweet>> tweets){
                 List<TwitterTweet> twitterTweets = new ArrayList<>();
-//                TwitterTweet.deleteAll(TwitterTweet.class);
+                TwitterTweet.deleteAll(TwitterTweet.class);
                 List<Tweet> tweetList = tweets.data;
                 for(int i=0;i<tweetList.size();i++){
                     Tweet tweet = tweetList.get(i);
