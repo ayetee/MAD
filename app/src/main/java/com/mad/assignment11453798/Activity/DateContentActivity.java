@@ -7,7 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.mad.assignment11453798.Adapter.FacebookEventAdapter;
+import com.mad.assignment11453798.Adapter.TwitterTweetAdapter;
 import com.mad.assignment11453798.Pojo.FacebookEvent;
+import com.mad.assignment11453798.Pojo.TwitterTweet;
 import com.mad.assignment11453798.R;
 
 import java.util.List;
@@ -18,8 +20,9 @@ import java.util.List;
  */
 public class DateContentActivity extends CalendarActivity{
 
-    private RecyclerView eventRecyclerView;
+    private RecyclerView facebookEventRecyclerView, twitterTweetRecyclerView;
     private FacebookEventAdapter facebookEventAdapter;
+    private TwitterTweetAdapter twitterTweetAdapter;
     private TextView dateTextView;
     private String chosenDateId;
 
@@ -31,7 +34,8 @@ public class DateContentActivity extends CalendarActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.date_content);
-        eventRecyclerView = (RecyclerView)findViewById(R.id.date_content_event_list);
+        facebookEventRecyclerView = (RecyclerView)findViewById(R.id.date_content_event_list);
+        twitterTweetRecyclerView = (RecyclerView)findViewById(R.id.date_content_twitter_tweet_list);
         dateTextView = (TextView)findViewById(R.id.date_view_date_tv);
 
         //Sets results from an intent
@@ -44,8 +48,17 @@ public class DateContentActivity extends CalendarActivity{
             List<FacebookEvent> facebookEvents = FacebookEvent.find(FacebookEvent.class,"date_id=?",chosenDateId);
             facebookEventAdapter = new FacebookEventAdapter(this,facebookEvents);
         }
-        eventRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        eventRecyclerView.setAdapter(facebookEventAdapter);
+        facebookEventRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        facebookEventRecyclerView.setAdapter(facebookEventAdapter);
+
+        //Sets twitter tweets view
+        long tweetCount = TwitterTweet.count(TwitterTweet.class);
+        if(tweetCount>0){
+            List<TwitterTweet> twitterTweets = TwitterTweet.find(TwitterTweet.class,"date_id=?",chosenDateId);
+            twitterTweetAdapter = new TwitterTweetAdapter(this,twitterTweets);
+        }
+        twitterTweetRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        twitterTweetRecyclerView.setAdapter(twitterTweetAdapter);
     }
 
     /**

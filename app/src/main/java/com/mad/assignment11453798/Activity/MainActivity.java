@@ -22,11 +22,13 @@ import com.facebook.login.widget.LoginButton;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 
+import com.google.gson.Gson;
 import com.mad.assignment11453798.Interface.TwitterApi;
 import com.mad.assignment11453798.Pojo.FacebookEvent;
 import com.mad.assignment11453798.Pojo.TwitterTweet;
 import com.mad.assignment11453798.R;
 import com.mad.assignment11453798.Service.TwitterService;
+import com.orm.SugarRecord;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -40,10 +42,13 @@ import com.twitter.sdk.android.core.models.Search;
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.core.services.SearchService;
 import com.twitter.sdk.android.core.services.StatusesService;
+import com.twitter.sdk.android.tweetui.TimelineResult;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -103,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent calendarScreen = new Intent(getApplicationContext(),CalendarActivity.class);
-//                getTweets(); //testing
 //                startActivity(calendarScreen);
                 startActivityForResult(calendarScreen,VIEW_CALENDAR_REQUEST);
             }
@@ -182,53 +186,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Login with Twitter failure", exception);
             }
         });
-    }
-
-    private void getTweets(){
-        TwitterSession currentSession = Twitter.getSessionManager().getActiveSession();
-        TwitterApiClient twitterApiClient = new TwitterApiClient(currentSession);
-        StatusesService statusesService = twitterApiClient.getStatusesService();
-        String name = currentSession.getUserName();
-
-        Callback<List<Tweet>> cb = new Callback<List<Tweet>>(){
-            @Override
-            public void success(Result<List<Tweet>> tweets){
-                List<Tweet> tweetList = tweets.data;
-            }
-            @Override
-            public void failure(TwitterException exception) {
-
-            }
-        };
-
-//        statusesService.userTimeline(null,name,2,null,null,false,false,false,false,cb);
-//
-//        statusesService.
-
-
-//        Call<TwitterTweet> response = TwitterService.createService().getUserTimeline("ayethratt","1");
-//        response.enqueue(new Callback<TwitterTweet>() {
-//            @Override
-//            public void success(Result<TwitterTweet> result) {
-//                String hello  = result.response.toString();
-//            }
-//
-//            @Override
-//            public void failure(TwitterException exception) {
-//
-//            }
-//        });
-//        final UserTimeline userTimeline = new UserTimeline.Builder()
-//                .screenName("ayethratt")
-//                .build();
-//        new GraphRequest(
-//                AccessToken.getCurrentAccessToken(), "/me/events", null, HttpMethod.GET,
-//                new GraphRequest.Callback() {
-//                    public void onCompleted(GraphResponse response) {
-//                        Log.e(TAG,response.toString());
-//                    }
-//                }
-//        ).executeAsync();
     }
 
     /**
