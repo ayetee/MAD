@@ -10,10 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="DATABASE" android:value="madmad2.db"/>
-        <meta-data android:name="VERSION" android:value="1"/>
+        <meta-data android:name="DATABASE" android:value="madmad3.db"/>
+        <meta-data android:name="VERSION" android:value="2"/>
         <meta-data android:name="QUERY_LOG" android:value="true"/>
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.mad.assignment11453798"/>
+        <!--<meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.mad.assignment11453798"/>-->
         <meta-data android:name="io.fabric.ApiKey" android:value="0c01cfa0ecc77f5b1a5e1f47d7441af606f9774c" />
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity android:name=".Activity.MainActivity">

@@ -55,7 +55,7 @@ public class CalendarActivity extends MainActivity{
             @Override
             public void onClick(View v) {
                 getFacebookEvents();
-//                getTweets();
+                getTweets();
             }
         });
     }
@@ -99,7 +99,7 @@ public class CalendarActivity extends MainActivity{
                         try {
                             Gson gson = new Gson();
                             List<FacebookEvent> facebookEvents = new ArrayList<>();
-                            FacebookEvent.deleteAll(FacebookEvent.class);
+//                            FacebookEvent.deleteAll(FacebookEvent.class);
                             JSONArray dataJSONArray = response.getJSONObject().getJSONArray("data");
                             for(int i=0;i<dataJSONArray.length();i++){
                                 String content = dataJSONArray.get(i).toString();
