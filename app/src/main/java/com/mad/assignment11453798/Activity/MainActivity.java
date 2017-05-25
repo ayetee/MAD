@@ -22,6 +22,10 @@ import com.facebook.login.widget.LoginButton;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
 import com.mad.assignment11453798.Interface.TwitterApi;
 import com.mad.assignment11453798.Pojo.FacebookEvent;
@@ -72,6 +76,7 @@ import static com.mad.assignment11453798.Interface.TwitterApi.BASE_URL;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     public static final int VIEW_CALENDAR_REQUEST = 1;
+    public static final int GOOGLE_SIGN_IN = 3;
     private CallbackManager callbackManager;
     private LoginButton facebookLoginButton;
     private Toast toasties;
@@ -83,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
     private List<FacebookEvent> facebookEvent;
     private TwitterLoginButton twitterLoginButton;
     private TwitterAuthToken twitterAuthToken;
+    private SignInButton googleLoginButton;
+    private GoogleApiClient mGoogleApiClient;
 
     /**
      * Overrides onCreate()
@@ -91,16 +98,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //facebook
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+
+        //twitter
         Resources res = getResources();
         TwitterAuthConfig authConfig = new TwitterAuthConfig(res.getString(R.string.twitter_app_id),res.getString(R.string.twitter_app_secret));
         Fabric.with(this, new Twitter(authConfig), new Crashlytics());
+
         setContentView(R.layout.activity_main);
 
         //Content references
         facebookLoginButton = (LoginButton)findViewById(R.id.facebook_login_button);
         twitterLoginButton = (TwitterLoginButton)findViewById(R.id.twitter_login_button);
+        googleLoginButton = (SignInButton)findViewById(R.id.google_login_button);
         viewCalendar = (Button)findViewById(R.id.main_view_calendar_btn);
 
         //View calender button
@@ -186,7 +199,36 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Login with Twitter failure", exception);
             }
         });
+
+        //handles google login functionality
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        mGoogleApiClient = new GoogleApiClient.Builder(MainActivity.this)
+                .enableAutoManage(MainActivity.this /* FragmentActivity */, MainActivity.this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        googleLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, GOOGLE_SIGN_IN);
+            }
+        });
     }
+
+    //this is how it should look!!
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.sign_in_button:
+//                signIn();
+//                break;
+//            // ...
+//        }
+//    }
+
+
+
 
     /**
      * Overrides onActivityResult()

@@ -43,6 +43,10 @@
                 android:id="@+id/twitter_login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/google_login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

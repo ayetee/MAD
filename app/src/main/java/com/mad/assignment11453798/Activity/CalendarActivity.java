@@ -131,7 +131,7 @@ public class CalendarActivity extends MainActivity{
         TwitterApiClient twitterApiClient = new TwitterApiClient(currentSession);
         StatusesService statusesService = twitterApiClient.getStatusesService();
         String name = currentSession.getUserName();
-        Call<List<Tweet>> tweets = statusesService.userTimeline(null, name, 5, null, null, false, false, false, true);//limited to 5 for testing
+        Call<List<Tweet>> tweets = statusesService.userTimeline(null, name, null, null, null, false, false, false, true);//limited to 5 for testing
         tweets.enqueue(new Callback<List<Tweet>>() {
             @Override
             public void success(Result<List<Tweet>> tweets){
