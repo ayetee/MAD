@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -11,7 +11,20 @@
         android:textStyle="italic"
         android:textSize="20sp"
         android:text="@string/date_content_date_tv_holder"/>
+    <LinearLayout
+        android:id="@+id/date_content_content_layout"
+        android:layout_below="@id/date_view_date_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/date_content_facebook_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
         <TextView
+            android:id="@+id/date_content_facebook_events_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold|italic"
@@ -19,10 +32,17 @@
             android:text="@string/date_content_fb_events_tv"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/date_content_event_list"
+            android:layout_below="@+id/date_content_facebook_events_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/date_content_twitter_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/date_content_twitter_tweets_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold|italic"
@@ -30,7 +50,10 @@
         android:text="@string/date_content_twitter_tweet_tv"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/date_content_twitter_tweet_list"
+        android:layout_below="@id/date_content_twitter_tweets_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical" />
-</LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
