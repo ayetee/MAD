@@ -9,28 +9,28 @@
     <RelativeLayout
         android:id="@+id/main_top_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/main_center_layout"
-        android:layout_weight="1">
+        android:layout_height="0dp"
+        android:layout_weight="10">
+        <ImageView
+            android:id="@+id/main_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_calendar_image"/>
     </RelativeLayout>
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/main_center_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/main_view_calendar_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/main_view_calendar_text"/>
-    </LinearLayout>
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/main_bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/main_center_layout"
-        android:layout_weight="1">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -46,7 +46,7 @@ public class CalendarActivity extends MainActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.calendar_content);
 
         initialiseCalendar();
 
