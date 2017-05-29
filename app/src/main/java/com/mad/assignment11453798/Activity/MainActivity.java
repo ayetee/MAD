@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -24,7 +26,6 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 
 import com.google.gson.Gson;
-import com.mad.assignment11453798.Interface.TwitterApi;
 import com.mad.assignment11453798.Pojo.FacebookEvent;
 import com.mad.assignment11453798.Pojo.TwitterTweet;
 import com.mad.assignment11453798.R;
@@ -62,14 +63,13 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.mad.assignment11453798.Interface.TwitterApi.BASE_URL;
 
 /**
+ * MainActivity Class
  * The landing page
  * Has the Login buttons for the social medias
  * and View Calendar button
  */
-
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     public static final int VIEW_CALENDAR_REQUEST = 1;
@@ -189,6 +189,35 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Overrides onCreateOptionsMenu()
+     * Creates menu in action bar
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    /**
+     * Overrides onOptionItemSelected()
+     * Listens for chosen menu item
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_settings) {
+            //Open up settings activity
+            Intent settingsScreen = new Intent(getApplicationContext(),SettingsActivity.class);
+                startActivity(settingsScreen);
+//            startActivityForResult(calendarScreen,VIEW_CALENDAR_REQUEST);
+        }
+        if (id == R.id.menu_quit) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     /**
      * Overrides onActivityResult()

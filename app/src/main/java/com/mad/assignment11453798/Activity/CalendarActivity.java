@@ -37,6 +37,11 @@ import java.util.List;
 
 import retrofit2.Call;
 
+/**
+ * Calendar Activity Class
+ * Has CalendarView calendar
+ * and Sync button
+ */
 public class CalendarActivity extends MainActivity{
     public static final int DATE_CONTENT_REQUEST = 1;
     public static final String INTENT_DATE_ID = "date_id";
@@ -44,24 +49,19 @@ public class CalendarActivity extends MainActivity{
     public static final String INTENT_MONTH = "month";
     public static final String INTENT_DATE = "day";
     private CalendarView calendar;
-    private Button syncBtn;
     private FloatingActionButton syncFab;
 
+
+    /**
+     * Overrides onCreate()
+     * Initialises the CalendarView and Sync FAB
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
         initialiseCalendar();
-
-//        syncBtn = (Button)findViewById(R.id.calendar_sync_btn);
-//        syncBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getFacebookEvents();
-//                getTweets();
-//            }
-//        });
 
         syncFab = (FloatingActionButton)findViewById(R.id.calendar_sync_fab);
         syncFab.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +74,6 @@ public class CalendarActivity extends MainActivity{
             }
         });
     }
-
 
     /**
      * Initialises Calendar view

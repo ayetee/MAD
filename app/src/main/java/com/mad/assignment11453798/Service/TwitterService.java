@@ -1,6 +1,5 @@
 package com.mad.assignment11453798.Service;
 
-import com.mad.assignment11453798.Interface.TwitterApi;
 import com.mad.assignment11453798.Pojo.TwitterTweet;
 import com.orm.SugarRecord;
 import com.twitter.sdk.android.Twitter;
@@ -19,7 +18,6 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.mad.assignment11453798.Interface.TwitterApi.BASE_URL;
 
 /**
  * Twitter Service Class
@@ -38,7 +36,7 @@ public class TwitterService {
         TwitterApiClient twitterApiClient = new TwitterApiClient(currentSession);
         StatusesService statusesService = twitterApiClient.getStatusesService();
         String name = currentSession.getUserName();
-        Call<List<Tweet>> tweets = statusesService.userTimeline(null, name, 5, null, null, false, false, false, true);//limited to 5 for testing
+        Call<List<Tweet>> tweets = statusesService.userTimeline(null, name, null, null, null, false, false, false, true);//limited to 5 for testing
         tweets.enqueue(new Callback<List<Tweet>>() {
             @Override
             public void success(Result<List<Tweet>> tweets){

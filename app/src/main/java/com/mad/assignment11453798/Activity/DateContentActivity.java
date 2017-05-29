@@ -17,7 +17,7 @@ import com.mad.assignment11453798.R;
 import java.util.List;
 
 /**
- * DateContent Class
+ * Date Content Activity Class
  * All the necessary content from chosen date
  */
 public class DateContentActivity extends CalendarActivity{
