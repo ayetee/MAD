@@ -1,6 +1,6 @@
-package com.mad.assignment11453798.Service;
+package com.mad.assignment11453798.service;
 
-import com.mad.assignment11453798.Pojo.TwitterTweet;
+import com.mad.assignment11453798.pojo.TwitterTweet;
 import com.orm.SugarRecord;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**

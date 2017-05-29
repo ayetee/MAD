@@ -1,4 +1,4 @@
-package com.mad.assignment11453798.Activity;
+package com.mad.assignment11453798.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mad.assignment11453798.Adapter.FacebookEventAdapter;
-import com.mad.assignment11453798.Adapter.TwitterTweetAdapter;
-import com.mad.assignment11453798.Pojo.FacebookEvent;
-import com.mad.assignment11453798.Pojo.TwitterTweet;
+import com.mad.assignment11453798.adapter.FacebookEventAdapter;
+import com.mad.assignment11453798.adapter.TwitterTweetAdapter;
+import com.mad.assignment11453798.pojo.FacebookEvent;
+import com.mad.assignment11453798.pojo.TwitterTweet;
 import com.mad.assignment11453798.R;
 
 import java.util.List;

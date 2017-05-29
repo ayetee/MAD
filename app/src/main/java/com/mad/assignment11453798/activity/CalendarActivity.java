@@ -1,41 +1,15 @@
-package com.mad.assignment11453798.Activity;
+package com.mad.assignment11453798.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 
-import com.facebook.AccessToken;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
-import com.google.gson.Gson;
-import com.mad.assignment11453798.Pojo.FacebookEvent;
-import com.mad.assignment11453798.Pojo.TwitterTweet;
 import com.mad.assignment11453798.R;
-import com.mad.assignment11453798.Service.FacebookService;
-import com.mad.assignment11453798.Service.TwitterService;
-import com.orm.SugarRecord;
-import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.Callback;
-import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterApiClient;
-import com.twitter.sdk.android.core.TwitterException;
-import com.twitter.sdk.android.core.TwitterSession;
-import com.twitter.sdk.android.core.models.Tweet;
-import com.twitter.sdk.android.core.services.StatusesService;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
+import com.mad.assignment11453798.service.FacebookService;
+import com.mad.assignment11453798.service.TwitterService;
 
 /**
  * Calendar Activity Class

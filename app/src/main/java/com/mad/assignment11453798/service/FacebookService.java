@@ -1,4 +1,4 @@
-package com.mad.assignment11453798.Service;
+package com.mad.assignment11453798.service;
 
 import android.util.Log;
 
@@ -7,7 +7,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.google.gson.Gson;
-import com.mad.assignment11453798.Pojo.FacebookEvent;
+import com.mad.assignment11453798.pojo.FacebookEvent;
 import com.orm.SugarRecord;
 
 import org.json.JSONArray;

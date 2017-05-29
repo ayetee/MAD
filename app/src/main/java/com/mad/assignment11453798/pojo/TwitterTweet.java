@@ -1,4 +1,4 @@
-package com.mad.assignment11453798.Pojo;
+package com.mad.assignment11453798.pojo;
 
 import com.orm.SugarRecord;
 

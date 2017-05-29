@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mad.assignment11453798.Activity.MainActivity"
+    tools:context="com.mad.assignment11453798.activity.MainActivity"
     android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/main_top_layout"
@@ -27,22 +27,22 @@
             android:layout_height="wrap_content"
             android:text="@string/main_view_calendar_text"/>
     </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/main_bottom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/facebook_login_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <com.twitter.sdk.android.core.identity.TwitterLoginButton
-                android:id="@+id/twitter_login_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </RelativeLayout>
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/main_bottom_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+            <!--<com.facebook.login.widget.LoginButton-->
+                <!--android:id="@+id/facebook_login_button"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"/>-->
+            <!--<com.twitter.sdk.android.core.identity.TwitterLoginButton-->
+                <!--android:id="@+id/twitter_login_button"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"/>-->
+        <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
 </LinearLayout>
