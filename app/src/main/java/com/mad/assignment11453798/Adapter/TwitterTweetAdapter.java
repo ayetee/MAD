@@ -42,7 +42,7 @@ public class TwitterTweetAdapter extends RecyclerView.Adapter<TwitterTweetAdapte
      */
     @Override
     public TwitterTweetAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.twitter_tweet_item, parent, false);
+        View view = inflater.inflate(R.layout.item_twitter_tweet, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }

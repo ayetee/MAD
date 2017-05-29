@@ -25,7 +25,7 @@ public class FacebookEventAdapter extends RecyclerView.Adapter<FacebookEventAdap
     }
 
     /**
-     * ViewHolder for the elements in fb_event_item
+     * ViewHolder for the elements in item_fb_event
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView eventName,eventDescription,eventDate;
@@ -44,7 +44,7 @@ public class FacebookEventAdapter extends RecyclerView.Adapter<FacebookEventAdap
      */
     @Override
     public FacebookEventAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.fb_event_item, parent, false);
+        View view = inflater.inflate(R.layout.item_fb_event, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }

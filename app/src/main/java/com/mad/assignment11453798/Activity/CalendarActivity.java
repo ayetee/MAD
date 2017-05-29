@@ -2,6 +2,7 @@ package com.mad.assignment11453798.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,8 @@ import com.google.gson.Gson;
 import com.mad.assignment11453798.Pojo.FacebookEvent;
 import com.mad.assignment11453798.Pojo.TwitterTweet;
 import com.mad.assignment11453798.R;
+import com.mad.assignment11453798.Service.FacebookService;
+import com.mad.assignment11453798.Service.TwitterService;
 import com.orm.SugarRecord;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
@@ -42,20 +45,32 @@ public class CalendarActivity extends MainActivity{
     public static final String INTENT_DATE = "day";
     private CalendarView calendar;
     private Button syncBtn;
+    private FloatingActionButton syncFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calendar_content);
+        setContentView(R.layout.activity_calendar);
 
         initialiseCalendar();
 
-        syncBtn = (Button)findViewById(R.id.calendar_sync_btn);
-        syncBtn.setOnClickListener(new View.OnClickListener() {
+//        syncBtn = (Button)findViewById(R.id.calendar_sync_btn);
+//        syncBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getFacebookEvents();
+//                getTweets();
+//            }
+//        });
+
+        syncFab = (FloatingActionButton)findViewById(R.id.calendar_sync_fab);
+        syncFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFacebookEvents();
-                getTweets();
+                TwitterService twitterApi = new TwitterService();
+                FacebookService facebookApi = new FacebookService();
+                twitterApi.getTweets();
+                facebookApi.getFacebookEvents();
             }
         });
     }
@@ -82,71 +97,6 @@ public class CalendarActivity extends MainActivity{
                 dateContent.putExtra(INTENT_MONTH,String.valueOf(month+1));
                 dateContent.putExtra(INTENT_DATE,String.valueOf(day));
                 startActivityForResult(dateContent,DATE_CONTENT_REQUEST);
-            }
-        });
-    }
-
-    /**
-     * Facebook Graph API call
-     * Stores the users events into Sugar db
-     */
-    private void getFacebookEvents(){
-        new GraphRequest(
-                AccessToken.getCurrentAccessToken(), "/me/events", null, HttpMethod.GET,
-                new GraphRequest.Callback() {
-                    public void onCompleted(GraphResponse response) {
-                        Log.e(TAG,response.toString());
-                        try {
-                            Gson gson = new Gson();
-                            List<FacebookEvent> facebookEvents = new ArrayList<>();
-                            FacebookEvent.deleteAll(FacebookEvent.class);
-                            JSONArray dataJSONArray = response.getJSONObject().getJSONArray("data");
-                            for(int i=0;i<dataJSONArray.length();i++){
-                                String content = dataJSONArray.get(i).toString();
-                                FacebookEvent event = gson.fromJson(content,FacebookEvent.class);
-                                facebookEvents.add(new FacebookEvent(event.getName(),event.getDescription(),event.getStartTime()));
-                            }
-                            SugarRecord.saveInTx(facebookEvents);
-                        }
-                        catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        catch(NullPointerException e){
-                            e.printStackTrace();
-                        }
-                        catch (Exception e){//FIND ALL THE EXCEPTIONS will replace after
-                            Log.d(TAG,e.toString());
-                        }
-                    }
-                }
-        ).executeAsync();
-    }
-
-    /**
-     * Twitter REST API call
-     * Stores the users tweets into Sugar db
-     */
-    private void getTweets(){
-        TwitterSession currentSession = Twitter.getSessionManager().getActiveSession();
-        TwitterApiClient twitterApiClient = new TwitterApiClient(currentSession);
-        StatusesService statusesService = twitterApiClient.getStatusesService();
-        String name = currentSession.getUserName();
-        Call<List<Tweet>> tweets = statusesService.userTimeline(null, name, 5, null, null, false, false, false, true);//limited to 5 for testing
-        tweets.enqueue(new Callback<List<Tweet>>() {
-            @Override
-            public void success(Result<List<Tweet>> tweets){
-                List<TwitterTweet> twitterTweets = new ArrayList<>();
-                TwitterTweet.deleteAll(TwitterTweet.class);
-                List<Tweet> tweetList = tweets.data;
-                for(int i=0;i<tweetList.size();i++){
-                    Tweet tweet = tweetList.get(i);
-                    twitterTweets.add(new TwitterTweet(tweet.text,tweet.createdAt));
-                }
-                SugarRecord.saveInTx(twitterTweets);
-            }
-
-            @Override
-            public void failure(TwitterException exception) {
             }
         });
     }

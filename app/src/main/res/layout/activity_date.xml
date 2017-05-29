@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/date_view_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/date_content_date_tv_holder"/>
+    <LinearLayout
+        android:id="@+id/date_content_content_layout"
+        android:layout_below="@id/date_view_date_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <include layout="@layout/content_fb_event_list"
+            android:id="@+id/date_content_fb_event_layout"
+            android:visibility="gone"/>
+
+        <include layout="@layout/content_twitter_tweet_list"
+            android:id="@+id/date_content_twitter_tweet_layout"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/date_content_google_events_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/date_content_twitter_tweet_list"
+            android:background="@color/colorGoogleRed"
+            android:src="@drawable/date_content_google_event_banner"/>
+    </LinearLayout>
+</RelativeLayout>
