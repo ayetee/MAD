@@ -62,14 +62,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            //Opens activity to sign in to social media
             case R.id.menu_accounts:
                 Intent accountsScreen = new Intent(this, AccountManagementActivity.class);
                 startActivity(accountsScreen);
                 return true;
+            //Opens up settings menu
             case R.id.menu_settings:
                 Intent preferenceScreen = new Intent(this, SettingsActivity.class);
                 startActivity(preferenceScreen);
                 return true;
+            //Quits application
             case R.id.menu_quit:
                 finishAffinity();
 //                finish();

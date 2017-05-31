@@ -131,7 +131,8 @@ public class AccountManagementActivity extends MainActivity {
                 TwitterSession session = result.data;
                 // TODO: Remove toast and use the TwitterSession's userID
                 // with your app's user model
-                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
+//                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
+                String msg = "";
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
 //                twitterAuthToken = session.getAuthToken();
