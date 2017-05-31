@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TableRow>
         <com.facebook.login.widget.LoginButton
             android:id="@+id/facebook_login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/facebook_login_button_enabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_account_management_enabled"
+            android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/facebook_login_button_disabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_account_management_disabled"
+            android:visibility="gone"/>
+    </TableRow>
+    <TableRow>
         <com.twitter.sdk.android.core.identity.TwitterLoginButton
             android:id="@+id/twitter_login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-</LinearLayout>
+        <ImageView
+            android:id="@+id/twitter_login_button_enabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_account_management_enabled"
+            android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/twitter_login_button_disabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_account_management_disabled"
+            android:visibility="gone"/>
+    </TableRow>
+</TableLayout>

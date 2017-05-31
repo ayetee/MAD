@@ -21,8 +21,15 @@ public class SettingsActivity extends PreferenceActivity {
         getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     }
 
+    /**
+     * SettingsFragment Class
+     */
     public static class SettingsFragment extends PreferenceFragment
     {
+        /**
+         * Overrides onCreate()
+         * Initiates fragment with preferences.xml
+         */
         @Override
         public void onCreate(final Bundle savedInstanceState)
         {
