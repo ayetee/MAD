@@ -5,9 +5,9 @@
     <application
         android:allowBackup="true"
         android:name="com.orm.SugarApp"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_calendar"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_round_calendar"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data android:name="DATABASE" android:value="madmad10.db"/>
@@ -16,7 +16,7 @@
         <!--<meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.mad.assignment11453798"/>-->
         <meta-data android:name="io.fabric.ApiKey" android:value="0c01cfa0ecc77f5b1a5e1f47d7441af606f9774c" />
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,8 +38,10 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.CalendarActivity"/>
-        <activity android:name=".Activity.DateContentActivity"/>
+        <activity android:name=".activity.CalendarActivity"/>
+        <activity android:name=".activity.DateContentActivity"/>
+        <activity android:name=".activity.SettingsActivity"/>
+        <activity android:name=".activity.AccountManagementActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
