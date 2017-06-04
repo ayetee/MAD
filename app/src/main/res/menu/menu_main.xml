@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/menu_accounts"
+        app:showAsAction="always"
+        android:title="Accounts"/>
+    <item
+        android:id="@+id/menu_settings"
+        app:showAsAction="never"
+        android:title="Settings"/>
+    <item
+        android:id="@+id/menu_quit"
+        app:showAsAction="never"
+        android:title="Quit"/>
+</menu>

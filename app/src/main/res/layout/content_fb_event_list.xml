@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/date_content_facebook_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/date_content_facebook_events_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@color/com_facebook_blue"
+            android:src="@drawable/date_content_facebook_event_banner"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/date_content_event_list"
+            android:layout_below="@+id/date_content_facebook_events_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical" />
+    </RelativeLayout>
+</LinearLayout>

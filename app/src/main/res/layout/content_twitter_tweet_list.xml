@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/date_content_twitter_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/date_content_twitter_tweets_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@color/colorTwitterLightBlue"
+            android:src="@drawable/date_content_twitter_tweet_banner"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/date_content_twitter_tweet_list"
+            android:layout_below="@id/date_content_twitter_tweets_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical" />
+    </RelativeLayout>
+</LinearLayout>
