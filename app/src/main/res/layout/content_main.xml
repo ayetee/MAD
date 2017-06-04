@@ -20,29 +20,13 @@
     <RelativeLayout
         android:id="@+id/main_center_layout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1">
         <Button
             android:id="@+id/main_view_calendar_btn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_view_calendar_text"/>
     </RelativeLayout>
-    <!--<RelativeLayout-->
-        <!--android:id="@+id/main_bottom_layout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
-            <!--<com.facebook.login.widget.LoginButton-->
-                <!--android:id="@+id/facebook_login_button"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-            <!--<com.twitter.sdk.android.core.identity.TwitterLoginButton-->
-                <!--android:id="@+id/twitter_login_button"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-        <!--</LinearLayout>-->
-    <!--</RelativeLayout>-->
 </LinearLayout>

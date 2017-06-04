@@ -35,7 +35,6 @@ public class FacebookEventAdapter extends RecyclerView.Adapter<FacebookEventAdap
             super(itemView);
             eventName = (TextView)itemView.findViewById(R.id.fb_event_item_name_tv);
             eventDescription = (TextView)itemView.findViewById(R.id.fb_event_item_description_tv);
-//            eventDate = (TextView)itemView.findViewById(R.id.fb_event_item_date_tv);
         }
     }
 
@@ -57,7 +56,6 @@ public class FacebookEventAdapter extends RecyclerView.Adapter<FacebookEventAdap
         FacebookEvent current = data.get(position);
         holder.eventName.setText(String.valueOf(current.getName()));
         holder.eventDescription.setText(String.valueOf(current.getDescription()));
-//        holder.eventDate.setText(String.valueOf(current.getStartTime().getTime()));
     }
 
     /**

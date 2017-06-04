@@ -36,14 +36,5 @@
                 android:id="@+id/date_content_twitter_tweet_layout"
                 android:visibility="gone"/>
         </RelativeLayout>
-
-        <!--<ImageView-->
-            <!--android:visibility="gone"-->
-            <!--android:id="@+id/date_content_google_events_iv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_below="@+id/date_content_twitter_tweet_list"-->
-            <!--android:background="@color/colorGoogleRed"-->
-            <!--android:src="@drawable/date_content_google_event_banner"/>-->
     </LinearLayout>
 </RelativeLayout>

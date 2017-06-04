@@ -22,6 +22,9 @@ import retrofit2.Call;
  */
 public class TwitterService {
 
+    /**
+     * TwitterService Constructor
+     */
     public TwitterService(){
     }
 
@@ -34,7 +37,7 @@ public class TwitterService {
         TwitterApiClient twitterApiClient = new TwitterApiClient(currentSession);
         StatusesService statusesService = twitterApiClient.getStatusesService();
         String name = currentSession.getUserName();
-        Call<List<Tweet>> tweets = statusesService.userTimeline(null, name, null, null, null, false, false, false, true);//limited to 5 for testing
+        Call<List<Tweet>> tweets = statusesService.userTimeline(null, name, null, null, null, false, false, false, true);//userTimeline(user_id,screen_name,count,since_id,max_id,trim_user,exclude_replies,contributor_details,include_rts);
         tweets.enqueue(new Callback<List<Tweet>>() {
             @Override
             public void success(Result<List<Tweet>> tweets){
@@ -49,7 +52,8 @@ public class TwitterService {
             }
 
             @Override
-            public void failure(TwitterException exception) {
+            public void failure(TwitterException e) {
+                e.printStackTrace();
             }
         });
     }

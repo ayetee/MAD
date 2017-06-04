@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             //Quits application
             case R.id.menu_quit:
                 finishAffinity();
-//                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -15,4 +15,8 @@
     <string name="twitter_app_secret">	mFUqL915crlqss07MK3M1FjRL1GdedwPksKIMiY3ukZjyaxVB2</string>
     <string name="twitter_tweet_item_description_tv_holder">Tweet text</string>
     <string name="date_content_twitter_tweet_tv">Tweets</string>
+    <string name="account_management_media_tv">Media</string>
+    <string name="account_management_status_tv">Status</string>
+    <string name="account_management_facebook_tv">Facebook</string>
+    <string name="account_management_twitter_tv">Twitter</string>
 </resources>

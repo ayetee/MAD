@@ -1,13 +1,18 @@
 package com.mad.assignment11453798.activity;
 
-import android.content.Context;
+/*
+    Facebook Account
+    margaret_mlxuabf_johnson@tfbnw.net:calendar2017
+
+    Twitter Account
+    ihavegonecalmad:calcal17
+ */
+
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -18,28 +23,18 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.mad.assignment11453798.pojo.FacebookEvent;
 import com.mad.assignment11453798.R;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -90,26 +85,6 @@ public class AccountManagementActivity extends MainActivity {
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(AccountManagementActivity.this,R.string.success_login_toast,Toast.LENGTH_LONG).show();
                 checkFacebookToken();
-//                accessTokenFB = loginResult.getAccessToken();
-////                tokenCode = accessTokenFB.getToken();
-//
-//                GraphRequest request = GraphRequest.newMeRequest(accessTokenFB, new GraphRequest.GraphJSONObjectCallback() {
-//                    //Overrides onCompleted() - Saves userId and userName
-//                    @Override
-//                    public void onCompleted(JSONObject object, GraphResponse response) {
-//                        Log.e(TAG,object.toString());
-//                        Log.e(TAG,response.toString());
-//
-//                        try {
-//                            String userId = object.getString("id");
-//                            String userName = object.getString("name");
-//                        }
-//                        catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                });
-//                request.executeAsync();
             }
 
             //Overrides onCancel() - Shows cancel toast
@@ -140,18 +115,10 @@ public class AccountManagementActivity extends MainActivity {
         twitterLoginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
-                // The TwitterSession is also available through:
-                // Twitter.getInstance().core.getSessionManager().getActiveSession()
-                TwitterSession session = result.data;
-                // TODO: Remove toast and use the TwitterSession's userID
-                // with your app's user model
-//                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
-                String msg = "";
-                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-
-//                twitterAuthToken = session.getAuthToken();
+                Toast.makeText(getApplicationContext(), R.string.success_login_toast, Toast.LENGTH_LONG).show();
                 checkTwitterToken();
             }
+
             @Override
             public void failure(TwitterException exception) {
                 Log.d(TAG, "Login with Twitter failure", exception);
@@ -182,8 +149,8 @@ public class AccountManagementActivity extends MainActivity {
             facebookDisabled.setVisibility(View.GONE);
         }
         else{
-            facebookEnabled.setVisibility(View.GONE);
             facebookDisabled.setVisibility(View.VISIBLE);
+            facebookEnabled.setVisibility(View.GONE);
         }
     }
 
@@ -199,8 +166,8 @@ public class AccountManagementActivity extends MainActivity {
             twitterDisabled.setVisibility(View.GONE);
         }
         else{
-            twitterEnabled.setVisibility(View.GONE);
             twitterDisabled.setVisibility(View.VISIBLE);
+            twitterEnabled.setVisibility(View.GONE);
         }
     }
 

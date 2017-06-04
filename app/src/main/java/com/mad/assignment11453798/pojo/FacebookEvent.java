@@ -1,5 +1,6 @@
 package com.mad.assignment11453798.pojo;
 
+import com.mad.assignment11453798.other.DateIdGenerator;
 import com.orm.SugarRecord;
 
 import java.util.Date;
@@ -30,10 +31,8 @@ public class FacebookEvent extends SugarRecord{
         this.description = description;
 
         //generates date id for event given start_time
-        String month = String.format("%02d",start_time.getMonth()+1);
-        String day = String.format("%02d",start_time.getDate());
-        String dateId = String.valueOf(start_time.getYear()+1900) + month + day;
-        this.dateId = Integer.parseInt(dateId);
+        DateIdGenerator dateIdGenerator = new DateIdGenerator(start_time);
+        this.dateId = dateIdGenerator.getDateId();
     }
 
     /**

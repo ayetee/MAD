@@ -21,6 +21,10 @@ import java.util.List;
  */
 
 public class FacebookService {
+
+    /**
+     * FacebookService Constructor
+     */
     public FacebookService(){
     }
 
@@ -33,7 +37,6 @@ public class FacebookService {
                 AccessToken.getCurrentAccessToken(), "/me/events", null, HttpMethod.GET,
                 new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
-//                        Log.e(TAG,response.toString());
                         try {
                             Gson gson = new Gson();
                             List<FacebookEvent> facebookEvents = new ArrayList<>();

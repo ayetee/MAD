@@ -4,6 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TableRow>
+        <TextView android:id="@+id/account_management_media_tv"
+            android:text="@string/account_management_media_tv"
+            android:textStyle="bold"/>
+        <TextView android:id="@+id/account_management_status_tv"
+            android:text="@string/account_management_status_tv"
+            android:textStyle="bold"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/account_management_facebook_tv"
+            android:text="@string/account_management_facebook_tv"/>
+    </TableRow>
+    <TableRow>
         <com.facebook.login.widget.LoginButton
             android:id="@+id/facebook_login_button"
             android:layout_width="wrap_content"
@@ -20,6 +32,10 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_account_management_disabled"
             android:visibility="gone"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/account_management_twitter_tv"
+            android:text="@string/account_management_twitter_tv"/>
     </TableRow>
     <TableRow>
         <com.twitter.sdk.android.core.identity.TwitterLoginButton

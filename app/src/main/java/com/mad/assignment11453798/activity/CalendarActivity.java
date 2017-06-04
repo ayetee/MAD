@@ -8,6 +8,7 @@ import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 
 import com.mad.assignment11453798.R;
+import com.mad.assignment11453798.other.DateIdGenerator;
 import com.mad.assignment11453798.service.FacebookService;
 import com.mad.assignment11453798.service.TwitterService;
 
@@ -63,7 +64,8 @@ public class CalendarActivity extends MainActivity{
             //starts date content activity for chosen date
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
-                String dateId = String.valueOf(year)+ String.format("%02d",month+1)+String.format("%02d",day);
+                DateIdGenerator dateIdGenerator = new DateIdGenerator(year,month,day);
+                String dateId = String.valueOf(dateIdGenerator.getDateId());
                 Intent dateContent = new Intent(getApplicationContext(),DateContentActivity.class);
                 dateContent.putExtra(INTENT_DATE_ID,dateId);
                 dateContent.putExtra(INTENT_YEAR,String.valueOf(year));
